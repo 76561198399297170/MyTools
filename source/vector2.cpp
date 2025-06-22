@@ -3,19 +3,19 @@
 /// @date 2025-06-22
 #include "vector2.h"
 
-/// @details 构造方法设置坐标
+/// @details 有参构造方法设置坐标
 Vector2::Vector2(float x, float y)
 {
 	this->m_x = x, this->m_y = y;
 }
 
-/// @details 构造方法完全复制other所有数据
+/// @details 拷贝构造方法完全复制other所有数据
 Vector2::Vector2(const Vector2& other)
 {
 	this->m_x = other.m_x, this->m_y = other.m_y;
 }
 
-/// @details 构造方法完全复制other所有数据
+/// @details 移动构造方法完全复制other所有数据
 Vector2::Vector2(Vector2&& other) noexcept : m_x(other.m_x), m_y(other.m_y)
 {
 

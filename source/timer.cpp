@@ -3,14 +3,14 @@
 /// @date 2025-06-21
 #include "timer.h"
 
-/// @details 构造方法只提供两个常用参数，其他需要手动设置
+/// @details 有参构造方法只提供两个常用参数，其他需要手动设置
 Timer::Timer(int duration, std::function<void()> callback)
 {
 	this->m_duration = duration;
 	this->m_callback = callback;
 }
 
-/// @details 构造方法完全复制other所有数据
+/// @details 拷贝构造方法完全复制other所有数据
 Timer::Timer(const Timer& other)
 {
 	this->is_auto_restart = other.is_auto_restart;

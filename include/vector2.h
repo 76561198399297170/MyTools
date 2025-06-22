@@ -8,6 +8,7 @@
 
 /// @class
 /// @brief 简单二维向量坐标点，支持简单数学计算方法
+/// @warning 数据类型为float注意请勿超过数据范围导致溢出
 class Vector2 
 {
 public:
