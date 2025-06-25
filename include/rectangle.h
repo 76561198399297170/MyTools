@@ -94,26 +94,26 @@ public:
     bool Contains(const Rectangle& other) const;
 
     /// @brief  以左上坐标为基准扩展矩形
-    /// @param horizontal 水平扩展量
-    /// @param vertical 垂直扩展量
-    void Expand(float horizontal, float vertical) const;
+    /// @param x 水平扩展量
+    /// @param y 垂直扩展量
+    void Expand(float x, float y);
 
     /// @brief 以左上坐标为基准扩展矩形
     /// @param amount 扩展量向量，x表示水平扩展量，y表示垂直扩展量
-    void Expand(const Vector2& amount) const;
+    void Expand(const Vector2& amount);
 
     /// @brief 平移矩形
     /// @param offset 平移向量
-    void Translate(const Vector2& offset) const;
+    void Translate(const Vector2& offset);
 
     /// @brief 以中心点为基准缩放矩形
     /// @param scale 缩放因子
-    void Scale(float scale) const;
+    void Scale(float scale);
 
     /// @brief 以指定点为基准缩放矩形（）
     /// @param scale 缩放因子
     /// @param origin 缩放基准点
-    void Scale(float scale, const Vector2& origin) const;
+    void Scale(float scale, const Vector2& origin);
 
 public:
     Vector2 m_position; ///< 矩形左上位置

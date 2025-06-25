@@ -123,13 +123,42 @@ bool Rectangle::Contains(const Rectangle& other) const
     return this->Collision(other.m_position) && this->Collision(other.GetBottomRight());
 }
 
+/// @details 位置不变只修改矩形大小
+void Rectangle::Expand(float x, float y)
+{
+    this->m_size += Vector2(x, y);
+}
+
+/// @details 位置不变只修改矩形大小
+void Rectangle::Expand(const Vector2& amount)
+{
+    this->m_size += amount;
+}
+
+/// @details 矩形大小不变只修改位置
+void Rectangle::Translate(const Vector2& offset)
+{
+    this->m_position += offset;
+}
+
+void Rectangle::Scale(float scale)
+{
+    this->Scale(scale, this->GetCenter());
+}
+
+void Rectangle::Scale(float scale, const Vector2& origin)
+{
+    this->m_position = (this->m_position - origin) * scale + origin;
+    this->m_size *= scale;
+}
+
 /// @details 合并矩形为同时包含两矩形的最小矩形
 Rectangle Union(const Rectangle& rect1, const Rectangle& rect2)
 {
     float x1 = std::min(rect1.m_position.m_x, rect2.m_position.m_x);
-    float x2 = std::max(rect1.m_position.m_x + rect1.m_size.m_x, rect2.m_position.m_x + rect2.m_size.m_x);
+    float x2 = std::max(rect1.GetBottomRight().m_x, rect2.GetBottomRight().m_x);
     float y1 = std::min(rect1.m_position.m_y, rect2.m_position.m_y);
-    float y2 = std::max(rect1.m_position.m_y + rect1.m_size.m_y, rect2.m_position.m_y + rect2.m_size.m_y);
+    float y2 = std::max(rect1.GetBottomRight().m_y, rect2.GetBottomRight().m_y);
 
     return Rectangle(x1, y1, x2 - x1, y2 - y1);
 }
@@ -139,9 +168,9 @@ Rectangle Intersection(const Rectangle& rect1, const Rectangle& rect2)
 {
     if (rect1.Collision(rect2)) return Rectangle();
     float x1 = std::max(rect1.m_position.m_x, rect2.m_position.m_x);
-    float x2 = std::min(rect1.m_position.m_x + rect1.m_size.m_x, rect2.m_position.m_x + rect2.m_size.m_x);
+    float x2 = std::min(rect1.GetBottomRight().m_x, rect2.GetBottomRight().m_x);
     float y1 = std::max(rect1.m_position.m_y, rect2.m_position.m_y);
-    float y2 = std::min(rect1.m_position.m_y + rect1.m_size.m_y, rect2.m_position.m_y + rect2.m_size.m_y);
+    float y2 = std::min(rect1.GetBottomRight().m_y, rect2.GetBottomRight().m_y);
 
     return Rectangle(x1, y1, x2 - x1, y2 - y1);
 }
