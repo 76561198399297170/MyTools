@@ -24,12 +24,18 @@
     <ClCompile Include="source\vector2.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="source\rectangle.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\timer.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="include\vector2.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\rectangle.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

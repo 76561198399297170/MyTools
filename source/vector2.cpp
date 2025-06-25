@@ -1,6 +1,7 @@
 /// @file vector2.cpp
 /// @brief 二维向量类实现
 /// @date 2025-06-22
+/// 
 #include "vector2.h"
 
 /// @details 有参构造方法设置坐标
@@ -16,7 +17,8 @@ Vector2::Vector2(const Vector2& other)
 }
 
 /// @details 移动构造方法完全复制other所有数据
-Vector2::Vector2(Vector2&& other) noexcept : m_x(other.m_x), m_y(other.m_y)
+Vector2::Vector2(Vector2&& other) noexcept
+	: m_x(other.m_x), m_y(other.m_y)
 {
 
 }
@@ -27,6 +29,16 @@ Vector2& Vector2::operator=(const Vector2& other)
 	if (this != &other)
 	{
 		this->m_x = other.m_x, this->m_y = other.m_y;
+	}
+	return *this;
+}
+
+/// @details 移动赋值重载
+Vector2& Vector2::operator=(Vector2&& other) noexcept
+{
+	if (this != &other)
+	{
+		this->m_x = std::move(other.m_x), this->m_y = std::move(other.m_y);
 	}
 	return *this;
 }

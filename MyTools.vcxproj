@@ -20,10 +20,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\main.cpp" />
+    <ClCompile Include="source\rectangle.cpp" />
     <ClCompile Include="source\timer.cpp" />
     <ClCompile Include="source\vector2.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\rectangle.h" />
     <ClInclude Include="include\timer.h" />
     <ClInclude Include="include\vector2.h" />
   </ItemGroup>

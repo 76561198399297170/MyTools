@@ -5,6 +5,7 @@
 #define _VECTOR_2_H_
 
 #include <cmath>
+#include <algorithm>
 
 /// @class
 /// @brief 简单二维向量坐标点，支持简单数学计算方法
@@ -33,6 +34,9 @@ public:
 public:
 	/// @brief 拷贝赋值运算符
 	Vector2& operator=(const Vector2& other);
+
+	/// @brief 移动赋值运算符
+	Vector2& operator=(Vector2&& other) noexcept;
 
 	/// @brief 向量加法运算符
 	Vector2 operator+(const Vector2& other) const;

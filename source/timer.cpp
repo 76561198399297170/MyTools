@@ -5,9 +5,9 @@
 
 /// @details 有参构造方法只提供两个常用参数，其他需要手动设置
 Timer::Timer(int duration, std::function<void()> callback)
+	: m_duration(duration), m_callback(callback)
 {
-	this->m_duration = duration;
-	this->m_callback = callback;
+
 }
 
 /// @details 拷贝构造方法完全复制other所有数据
